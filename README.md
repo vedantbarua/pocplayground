@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The production build uses system fonts, so it does not depend on an external font download.
 
 ## Learn More
 
@@ -31,6 +31,8 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The Next.js project lives at the repository root. In Vercel, leave **Root Directory** empty and deploy the production branch (normally `main`).
+
+Use the project's production domain when sharing the site. URLs containing a random deployment suffix point to one specific deployment and can return Vercel's `404: NOT_FOUND` after that deployment is removed.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
