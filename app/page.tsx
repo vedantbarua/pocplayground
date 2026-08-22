@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="landing-shell">
@@ -33,6 +35,7 @@ export default function Home() {
         <p className="intro">Our tiny team is busy building, polishing, and testing. Check back soon—something delightful is on its way.</p>
         <div className="progress" aria-label="Work in progress"><span /></div>
         <p className="progress-label">Work in progress</p>
+        <Link className="text-link" href="/about">Learn about the playground <span aria-hidden="true">→</span></Link>
       </section>
       <footer>Built with curiosity and plenty of snacks.</footer>
     </main>
