@@ -1,101 +1,56 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 
-const projects = [
-  { category: "AI", title: "Support Copilot", description: "An AI workspace that turns customer conversations into clear, actionable answers.", metric: "42% faster replies", color: "violet" },
-  { category: "Web", title: "Pulse Analytics", description: "A focused dashboard for monitoring product health without drowning in charts.", metric: "12 live signals", color: "lime" },
-  { category: "Tools", title: "Launch Checklist", description: "A collaborative release workflow that keeps teams aligned from QA to rollout.", metric: "Zero missed steps", color: "orange" },
+const work = [
+  { type: "AI product", title: "Support Copilot", description: "A focused assistant that helps support teams find answers and respond faster." },
+  { type: "Web application", title: "Pulse Analytics", description: "A clear product-health dashboard built around the signals teams actually use." },
+  { type: "Internal tool", title: "Launch Checklist", description: "A shared release workflow that keeps owners, approvals, and progress in one place." },
 ];
 
-const filters = ["All", "AI", "Web", "Tools"];
-
-function ArrowIcon() {
-  return <svg aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h12M11 5l5 5-5 5" /></svg>;
-}
-
 export default function Home() {
-  const [filter, setFilter] = useState("All");
-  const visibleProjects = filter === "All" ? projects : projects.filter((project) => project.category === filter);
-
   return (
-    <main className="studio-page">
-      <nav className="studio-nav" aria-label="Primary navigation">
-        <Link className="studio-logo" href="/"><span>POC</span> Playground</Link>
-        <div className="studio-nav-links">
-          <a href="#work">Work</a><a href="#services">Services</a><Link href="/about">About</Link>
-        </div>
-        <a className="nav-cta" href="mailto:hello@pocplayground.com">Start a project <ArrowIcon /></a>
+    <main className="site-shell">
+      <nav className="site-nav" aria-label="Primary navigation">
+        <Link className="site-logo" href="/">POC Playground</Link>
+        <div><a href="#work">Work</a><a href="#process">Process</a><Link href="/about">About</Link></div>
+        <a className="nav-contact" href="mailto:hello@pocplayground.com">Contact</a>
       </nav>
 
-      <section className="studio-hero">
-        <div className="hero-copy">
-          <p className="availability"><span />Available for select projects · Q4 2026</p>
-          <h1>We turn early ideas into <em>real products.</em></h1>
-          <p className="hero-lede">POC Playground is a product studio for teams that need to learn fast. We design and build focused prototypes that are ready for real users.</p>
-          <div className="hero-actions">
-            <a className="primary-action" href="#work">Explore our work <ArrowIcon /></a>
-            <Link className="secondary-action" href="/about">How we work</Link>
-          </div>
-          <div className="trust-row"><span>Strategy</span><i /> <span>Product design</span><i /> <span>Engineering</span></div>
-        </div>
-
-        <div className="hero-console" aria-label="Current project activity">
-          <div className="console-bar"><div><i /><i /><i /></div><span>build-status.tsx</span><b>Live</b></div>
-          <div className="console-body">
-            <p className="console-comment">{"// Current sprint"}</p>
-            <div className="console-line"><span>01</span><p><b>const</b> idea = <mark>&quot;your next product&quot;</mark>;</p></div>
-            <div className="console-line"><span>02</span><p><b>const</b> status = <mark>&quot;building&quot;</mark>;</p></div>
-            <div className="console-line"><span>03</span><p><b>const</b> launch = <strong>true</strong>;</p></div>
-            <div className="build-card">
-              <div className="build-card-top"><span><i />Prototype environment</span><b>Healthy</b></div>
-              <div className="build-progress"><span /></div>
-              <div className="build-stats"><span><b>18</b> components</span><span><b>96</b> performance</span><span><b>7d</b> to test</span></div>
-            </div>
-          </div>
-          <div className="floating-badge badge-top">✓ User flow approved</div>
-          <div className="floating-badge badge-bottom"><span>↗</span> Build deployed</div>
-        </div>
+      <section className="minimal-hero">
+        <p className="overline">Product design and engineering</p>
+        <h1>Turn an idea into<br />something <em>real.</em></h1>
+        <p>We help teams shape, design, and build focused digital products—quickly enough to learn, carefully enough to use.</p>
+        <div><a className="solid-button" href="mailto:hello@pocplayground.com">Start a conversation</a><a className="plain-link" href="#work">View selected work <span aria-hidden="true">↓</span></a></div>
       </section>
 
-      <section className="studio-work" id="work">
-        <div className="section-heading">
-          <div><p className="studio-kicker">Selected work</p><h2>Small builds.<br />Serious outcomes.</h2></div>
-          <p>Purposeful experiments designed to answer the questions that matter before you invest in the full build.</p>
-        </div>
-        <div className="project-filters" aria-label="Filter projects">
-          {filters.map((item) => <button className={filter === item ? "active" : ""} key={item} onClick={() => setFilter(item)}>{item}</button>)}
-        </div>
-        <div className="project-grid">
-          {visibleProjects.map((project) => (
-            <article className={`project-card ${project.color}`} key={project.title}>
-              <div className="project-visual">
-                <span className="project-category">{project.category}</span>
-                <div className="mini-window"><div className="mini-sidebar"><i /><i /><i /></div><div className="mini-content"><span /><span /><div><i /><i /><i /></div></div></div>
-                <span className="metric-pill">{project.metric}</span>
-              </div>
-              <div className="project-info"><div><h3>{project.title}</h3><p>{project.description}</p></div><button aria-label={`View ${project.title}`}><ArrowIcon /></button></div>
+      <section className="work-section" id="work">
+        <header><p className="overline">Selected work</p><h2>Recent builds</h2></header>
+        <div className="work-list">
+          {work.map((project, index) => (
+            <article key={project.title}>
+              <span>0{index + 1}</span>
+              <div><p>{project.type}</p><h3>{project.title}</h3></div>
+              <p>{project.description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="services-section" id="services">
-        <div><p className="studio-kicker">What we do</p><h2>From fuzzy question<br />to working answer.</h2></div>
-        <div className="service-list">
-          <article><span>01</span><div><h3>Shape the idea</h3><p>Clarify the user, the problem, and the smallest useful thing worth testing.</p></div></article>
-          <article><span>02</span><div><h3>Design the experience</h3><p>Turn assumptions into an intuitive interface people can understand and use.</p></div></article>
-          <article><span>03</span><div><h3>Build the prototype</h3><p>Ship a reliable, measurable product slice using modern web and AI technology.</p></div></article>
-        </div>
+      <section className="process-section" id="process">
+        <div><p className="overline">Our process</p><h2>Small steps.<br />Clear decisions.</h2></div>
+        <ol>
+          <li><span>01</span><div><h3>Define</h3><p>Clarify the problem, the user, and what we need to learn.</p></div></li>
+          <li><span>02</span><div><h3>Design</h3><p>Turn the strongest direction into a simple, testable experience.</p></div></li>
+          <li><span>03</span><div><h3>Build</h3><p>Ship a reliable product slice and put it in front of real users.</p></div></li>
+        </ol>
       </section>
 
-      <section className="studio-cta">
-        <p className="studio-kicker">Have an idea?</p><h2>Let&apos;s make it<br /><em>tangible.</em></h2>
-        <a href="mailto:hello@pocplayground.com">Tell us what you&apos;re thinking <ArrowIcon /></a>
+      <section className="contact-section">
+        <p className="overline">Have a project in mind?</p>
+        <h2>Let&apos;s make it useful.</h2>
+        <a href="mailto:hello@pocplayground.com">hello@pocplayground.com <span aria-hidden="true">↗</span></a>
       </section>
 
-      <footer className="studio-footer"><Link className="studio-logo" href="/"><span>POC</span> Playground</Link><p>© 2026 POC Playground. Built to learn.</p><div><Link href="/about">About</Link><a href="mailto:hello@pocplayground.com">Contact</a></div></footer>
+      <footer className="site-footer"><Link className="site-logo" href="/">POC Playground</Link><p>© 2026 POC Playground</p><Link href="/about">About</Link></footer>
     </main>
   );
 }

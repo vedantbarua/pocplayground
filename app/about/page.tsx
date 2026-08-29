@@ -63,8 +63,8 @@ export default function AboutPage() {
         </section>
 
         <section className="about-cta">
-          <div><p className="section-label">What&apos;s next</p><h2>The hamster is still working.</h2></div>
-          <Link className="button-link" href="/">See what&apos;s cooking <span aria-hidden="true">→</span></Link>
+          <div><p className="section-label">Have an idea?</p><h2>Let&apos;s make it real.</h2></div>
+          <a className="button-link" href="mailto:hello@pocplayground.com">Start a conversation <span aria-hidden="true">→</span></a>
         </section>
       </article>
     </main>
