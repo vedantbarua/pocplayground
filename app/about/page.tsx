@@ -1,71 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "About | POC Playground",
-  description: "Learn why POC Playground exists and what we are building.",
-};
-
-const principles = [
-  {
-    number: "01",
-    title: "Build to learn",
-    description: "Ideas become clearer when they leave the notebook and turn into something you can use.",
-  },
-  {
-    number: "02",
-    title: "Keep it small",
-    description: "Focused experiments move quickly, reveal the important questions, and make room for iteration.",
-  },
-  {
-    number: "03",
-    title: "Share the result",
-    description: "Every prototype should leave behind a useful lesson, a reusable pattern, or a spark for the next idea.",
-  },
-];
+export const metadata: Metadata = { title: "About | System Design Daily", description: "Why System Design Daily exists." };
 
 export default function AboutPage() {
   return (
-    <main className="about-shell">
-      <div className="glow glow-one" />
-      <div className="glow glow-two" />
-      <nav className="about-nav" aria-label="Primary navigation">
-        <Link className="brand" href="/"><span className="status-dot" aria-hidden="true" />POC Playground</Link>
-        <Link className="nav-home" href="/">Home</Link>
-      </nav>
-
-      <article className="about-content">
-        <header className="about-hero">
-          <p className="section-label">About the playground</p>
-          <h1>A home for curious ideas and <em>tiny experiments.</em></h1>
-          <p>POC Playground is a space for exploring technology by making real things—quickly, thoughtfully, and without taking the fun out of the process.</p>
-        </header>
-
-        <section className="about-story" aria-labelledby="story-title">
-          <h2 id="story-title">Why it exists</h2>
-          <div>
-            <p>The best way to understand a new tool, pattern, or possibility is to put it to work. This playground turns questions into small, deployable proofs of concept.</p>
-            <p>Some experiments will grow. Others will simply teach us something useful. Both outcomes count as progress.</p>
-          </div>
-        </section>
-
-        <section className="principles" aria-labelledby="principles-title">
-          <p className="section-label" id="principles-title">How we work</p>
-          <div className="principle-grid">
-            {principles.map((principle) => (
-              <article className="principle-card" key={principle.number}>
-                <span>{principle.number}</span>
-                <h2>{principle.title}</h2>
-                <p>{principle.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="about-cta">
-          <div><p className="section-label">Have an idea?</p><h2>Let&apos;s make it real.</h2></div>
-          <a className="button-link" href="mailto:hello@pocplayground.com">Start a conversation <span aria-hidden="true">→</span></a>
-        </section>
+    <main className="about-docs">
+      <nav className="docs-nav"><Link className="docs-logo" href="/"><span>SD</span> System Design Daily</Link><Link href="/">Home</Link></nav>
+      <article>
+        <p className="docs-eyebrow">About this project</p>
+        <h1>System design gets easier when you practice it <em>consistently.</em></h1>
+        <div className="about-copy"><h2>One document every day.</h2><div><p>System Design Daily is a public learning project. Each note takes one real-world system and works through its requirements, architecture, data model, scaling limits, and trade-offs.</p><p>The goal is not to present one perfect answer. It is to build the habit of asking better questions and making technical decisions explicit.</p></div></div>
+        <Link className="about-archive-link" href="/#archive">Browse the archive <span aria-hidden="true">→</span></Link>
       </article>
     </main>
   );

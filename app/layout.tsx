@@ -3,8 +3,8 @@ import "./globals.css";
 import ThemeToggle from "./theme-toggle";
 
 export const metadata: Metadata = {
-  title: "POC Playground",
-  description: "Small, deployable full-stack development experiments.",
+  title: "System Design Daily",
+  description: "Practical system design documents published every day.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
