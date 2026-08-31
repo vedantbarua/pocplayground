@@ -16,6 +16,24 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Publish a design document
+
+Add a Markdown file to `content/designs/`. The filename becomes the URL slug. Include this front matter:
+
+```md
+---
+number: 4
+title: Design a Message Queue
+summary: A short description for the homepage and SEO.
+category: Distributed systems
+date: "August 31, 2026"
+readTime: 8 min read
+scale: 1B messages/day
+---
+```
+
+Write the article in normal Markdown. Add architecture diagrams with fenced `mermaid` blocks. The homepage, archive, article route, metadata, and table of contents are generated automatically.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 The production build uses system fonts, so it does not depend on an external font download.

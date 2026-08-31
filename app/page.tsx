@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { docs } from "./docs";
+import { getAllDocs } from "@/lib/design-docs";
 
 export default function Home() {
+  const docs = getAllDocs();
   const [latest, ...archive] = docs;
 
   return (
